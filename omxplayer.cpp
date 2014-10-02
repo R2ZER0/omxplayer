@@ -527,15 +527,19 @@ int main(int argc, char *argv[])
     { "audio_queue",  required_argument,  NULL,          audio_queue_opt },
     { "video_queue",  required_argument,  NULL,          video_queue_opt },
     { "boost-on-downmix", no_argument,    NULL,          boost_on_downmix_opt },
+    { "something",    required_argument,  NULL,          'a'}
     { 0, 0, 0, 0 }
   };
 
+  bool do_a = false;
   int c;
   std::string mode;
   while ((c = getopt_long(argc, argv, "wihkn:l:o:cslpd3:yzt:rg", longopts, NULL)) != -1)
   {
     switch (c) 
     {
+      case 'a':
+        do_a  = true;
       case 'r':
         m_refresh = true;
         break;
